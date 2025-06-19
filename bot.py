@@ -87,10 +87,10 @@ def main():
                 send_email_notification(smtp_info, contest_name, old_rating, new_rating)
                 last_notified_time = rating_update_time
 
-            time.sleep(10)  # Check every minute
+            time.sleep(600)  # Check every 10 minutes
         except Exception as e:
             print(f"An error occurred: {e}")
-            time.sleep(10)  # Wait before retrying
+            time.sleep(300)  # Wait before retrying
 
 if __name__ == '__main__':
     main()
