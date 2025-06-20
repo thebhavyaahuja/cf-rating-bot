@@ -5,13 +5,13 @@ import os
 from configparser import ConfigParser
 from email.mime.text import MIMEText
 
-# Load user configuration
+# Load user configuration and fetch environment variables from Github Secrets
 def load_config():
     config = ConfigParser()
     config.read('config.ini')
     return {
-        'handle': config.get('USER', 'handle'),
-        'recipient_email': config.get('EMAIL', 'recipient_email'),
+        'handle': os.environ['HANDLE'],
+        'recipient_email': os.environ['EMAIL'],
         'smtp_server': config.get('EMAIL', 'smtp_server'),
         'smtp_port': config.getint('EMAIL', 'smtp_port'),
         'smtp_user': config.get('EMAIL', 'sender_email'),

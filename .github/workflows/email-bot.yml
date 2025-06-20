@@ -26,6 +26,6 @@ jobs:
     - name: Run Email Bot Script
       env:
         EMAIL: ${{ secrets.EMAIL }}
-        APP_PASSWORD: ${{ secrets.APP_PASSWORD }}
+        HANDLE: ${{ secrets.HANDLE }}
       run: |
         python3 bot.py
