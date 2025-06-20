@@ -11,12 +11,15 @@ from oauth2client.service_account import ServiceAccountCredentials
 def load_config():
     config = ConfigParser()
     config.read('config.ini')
-    return {
-        'smtp_server': config.get('EMAIL', 'smtp_server'),
-        'smtp_port': config.getint('EMAIL', 'smtp_port'),
-        'smtp_user': config.get('EMAIL', 'sender_email'),
-        'smtp_password': config.get('EMAIL', 'password')
-    }
+    try:
+        return {
+            'smtp_server': os.environ['SMTP_SERVER'],
+            'smtp_port': int(os.environ['SMTP_PORT']),
+            'smtp_user': os.environ['SMTP_USER'],
+            'smtp_password': os.environ['SMTP_PASSWORD']
+        }
+    except KeyError as e:
+        raise Exception(f"Missing environment variable: {e}. Please set SMTP_SERVER, SMTP_PORT, SMTP_USER, and SMTP_PASSWORD in your environment variables.")
 
 # Load users from Google Sheet
 def load_users_from_google_sheet():
