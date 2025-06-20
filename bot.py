@@ -72,25 +72,22 @@ def main():
 
     last_notified_time = 0
 
-    while True:
-        try:
-            ratings = get_rating(handle)
-            latest_rating = ratings[-1]
-            contest_name = latest_rating['contestName']
-            new_rating = latest_rating['newRating']
-            rating_update_time = latest_rating['ratingUpdateTimeSeconds']
-            print(f"Latest rating for {handle}: {new_rating} (Contest: {contest_name})")
-            print(f"Rating update time: {time.ctime(rating_update_time)}")
+    try:
+        ratings = get_rating(handle)
+        latest_rating = ratings[-1]
+        contest_name = latest_rating['contestName']
+        new_rating = latest_rating['newRating']
+        rating_update_time = latest_rating['ratingUpdateTimeSeconds']
+        print(f"Latest rating for {handle}: {new_rating} (Contest: {contest_name})")
+        print(f"Rating update time: {time.ctime(rating_update_time)}")
 
-            if rating_update_time > last_notified_time:
-                old_rating = latest_rating['oldRating']
-                send_email_notification(smtp_info, contest_name, old_rating, new_rating)
-                last_notified_time = rating_update_time
+        if rating_update_time > last_notified_time:
+            old_rating = latest_rating['oldRating']
+            send_email_notification(smtp_info, contest_name, old_rating, new_rating)
+            last_notified_time = rating_update_time
 
-            time.sleep(600)  # Check every 10 minutes
-        except Exception as e:
-            print(f"An error occurred: {e}")
-            time.sleep(300)  # Wait before retrying
+    except Exception as e:
+        print(f"An error occurred: {e}")
 
 if __name__ == '__main__':
     main()
