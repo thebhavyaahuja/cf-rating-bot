@@ -1,1 +1,13 @@
-.env
+*.json
+*.pem
+*.key
+/codeforces-rating-bot/service_account.json
+/codeforces-rating-bot/config.ini
+
+# Ignore Python cache and virtual environments
+__pycache__/
+*.pyc
+venv/
+
+# Ignore IDE-specific files
+.vscode/

@@ -1,0 +1,65 @@
+## Installation
+1. Clone the repository:
+   ```
+   git clone https://github.com/yourusername/codeforces-rating-bot.git
+   ```
+2. Navigate to the project directory:
+   ```
+   cd codeforces-rating-bot
+   ```
+3. (Optional) For local development, install dependencies:
+   ```
+   pip install -r requirements.txt
+   ```
+
+## Configuration
+
+This bot is designed to be run via GitHub Actions and uses Google Sheets as a database for users.
+
+### 1. Google Sheet Setup
+
+1.  Create a new Google Sheet named `Codeforces Notifier Users`.
+2.  Ensure the first worksheet is named `sheet1` (the default).
+3.  Set up the following columns in the first row: `Handle`, `Email`, `LastNotifiedTimestamp`.
+    *   `Handle`: The Codeforces handle of the user.
+    *   `Email`: The email address to send notifications to.
+    *   `LastNotifiedTimestamp`: The bot uses this to track sent notifications. You can leave it empty for new users.
+
+### 2. Google Cloud Platform Setup
+
+To allow the bot to access your Google Sheet, you need to create a service account.
+
+1.  Go to the [Google Cloud Console](https://console.cloud.google.com/).
+2.  Create a new project.
+3.  Enable the "Google Drive API" and "Google Sheets API".
+4.  Create a service account from "IAM & Admin" > "Service Accounts".
+5.  Grant the service account the "Editor" role.
+6.  Create a JSON key for the service account and download the file.
+
+### 3. Share Google Sheet
+
+Share your Google Sheet with the service account's email address (found in the JSON key file) and give it "Editor" permissions.
+
+### 4. GitHub Secrets Setup
+
+In your GitHub repository, go to "Settings" > "Secrets and variables" > "Actions" and add the following secrets:
+
+*   `GCP_SA_KEY`: The entire content of your downloaded JSON service account key file.
+*   `SENDER_EMAIL`: The email address for sending notifications.
+*   `SMTP_PASSWORD`: The password for the sender's email account (an app-specific password is recommended).
+*   `SMTP_SERVER`: The SMTP server for your email provider (e.g., `smtp.gmail.com`).
+*   `SMTP_PORT`: The SMTP port (e.g., `587`).
+
+## Usage
+
+The bot is configured to run automatically every 15 minutes using GitHub Actions. You can also trigger it manually from the "Actions" tab in your GitHub repository.
+
+For local testing, create `config.ini` and `service_account.json` files with the appropriate content.
+
+## Success Metrics
+
+The bot's success can be measured by:
+
+*   Successful email notifications to users.
+*   Accurate and timely updates of user data in the Google Sheet.
+*   Proper logging of bot activities and errors for troubleshooting.
