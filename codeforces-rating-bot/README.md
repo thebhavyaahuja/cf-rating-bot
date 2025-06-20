@@ -16,14 +16,14 @@
 
 This bot is designed to be run via GitHub Actions and uses Google Sheets as a database for users.
 
+## Behind the Scenes Jargon
+
 ### 1. Google Sheet Setup
 
-1.  Create a new Google Sheet named `Codeforces Notifier Users`.
-2.  Ensure the first worksheet is named `sheet1` (the default).
-3.  Set up the following columns in the first row: `Handle`, `Email`, `LastNotifiedTimestamp`.
-    *   `Handle`: The Codeforces handle of the user.
-    *   `Email`: The email address to send notifications to.
-    *   `LastNotifiedTimestamp`: The bot uses this to track sent notifications. You can leave it empty for new users.
+I have a google sheet that you can add your handle and account (where u want emails to be sent).
+
+https://docs.google.com/forms/d/e/1FAIpQLSdwSP5SG5KOWC9Wm2Hd7FoI4dguC1cxTz0W-9b302IqMlo-Gg/viewform?usp=dialog
+
 
 ### 2. Google Cloud Platform Setup
 
