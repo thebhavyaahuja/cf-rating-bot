@@ -4,6 +4,8 @@ import time
 import os
 from configparser import ConfigParser
 from email.mime.text import MIMEText
+from dotenv import load_dotenv
+load_dotenv()
 
 # Load user configuration and fetch environment variables from Github Secrets
 def load_config():
