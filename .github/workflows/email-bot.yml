@@ -32,12 +32,16 @@ jobs:
         echo "smtp_server = ${{ secrets.SMTP_SERVER }}" >> config.ini
         echo "smtp_port = ${{ secrets.SMTP_PORT }}" >> config.ini
 
-    - name: Create Google Sheets credentials
-      working-directory: ./codeforces-rating-bot
-      run: |
-        echo '${{ secrets.GCP_SA_KEY }}' > service_account.json
+    - name: Create Google Cloud credentials file
+      run: echo '${{ secrets.GCP_SA_KEY }}' > codeforces-rating-bot/service_account.json
 
-    - name: Run Email Bot Script
-      working-directory: ./codeforces-rating-bot
+    - name: Run python bot
+      env:
+        SMTP_SERVER: ${{ secrets.SMTP_SERVER }}
+        SMTP_PORT: ${{ secrets.SMTP_PORT }}
+        SMTP_USER: ${{ secrets.SMTP_USER }}
+        SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
+        RECIPIENT_EMAIL: ${{ secrets.RECIPIENT_EMAIL }}
       run: |
+        cd codeforces-rating-bot
         python3 bot.py
