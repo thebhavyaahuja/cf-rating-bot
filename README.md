@@ -5,8 +5,14 @@ Codeforces doesn’t send notifications (atleast to me) when contest ratings are
 https://docs.google.com/forms/d/e/1FAIpQLSdwSP5SG5KOWC9Wm2Hd7FoI4dguC1cxTz0W-9b302IqMlo-Gg/viewform?usp=dialog
 
 
-## If you wanna use/ look at the code :
+## Implementation walkthrough :
+
+Uses Google Sheets API, CF API, SMTP, and runs on GitHub Actions
+
+## To look at the code (not reqd to use the bot) :
+
 ## Installation
+
 1. Clone the repository:
    ```
    git clone https://github.com/yourusername/codeforces-rating-bot.git
