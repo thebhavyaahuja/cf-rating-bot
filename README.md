@@ -41,7 +41,7 @@ https://docs.google.com/forms/d/e/1FAIpQLSdwSP5SG5KOWC9Wm2Hd7FoI4dguC1cxTz0W-9b3
 
 ### 2. Google Cloud Platform Setup
 
-To allow the bot to access your Google Sheet, you need to create a service account.
+Creates a service account.
 
 1.  Go to the [Google Cloud Console](https://console.cloud.google.com/).
 2.  Create a new project.
@@ -50,13 +50,8 @@ To allow the bot to access your Google Sheet, you need to create a service accou
 5.  Grant the service account the "Editor" role.
 6.  Create a JSON key for the service account and download the file.
 
-### 3. Share Google Sheet
-
-Share your Google Sheet with the service account's email address (found in the JSON key file) and give it "Editor" permissions.
-
-### 4. GitHub Secrets Setup
-
-In your GitHub repository, go to "Settings" > "Secrets and variables" > "Actions" and add the following secrets:
+### 3. GitHub Secrets Setup
+Has repository secrets :
 
 *   `GCP_SA_KEY`: The entire content of your downloaded JSON service account key file.
 *   `SENDER_EMAIL`: The email address for sending notifications.
@@ -66,14 +61,7 @@ In your GitHub repository, go to "Settings" > "Secrets and variables" > "Actions
 
 ## Usage
 
-The bot is configured to run automatically every 15 minutes using GitHub Actions. You can also trigger it manually from the "Actions" tab in your GitHub repository.
+The bot is configured to run automatically every 15 minutes using GitHub Actions. 
 
-For local testing, create `config.ini` and `service_account.json` files with the appropriate content.
+For local testing, need to add `config.ini` and `service_account.json` files with the appropriate content.
 
-## Success Metrics
-
-The bot's success can be measured by:
-
-*   Successful email notifications to users.
-*   Accurate and timely updates of user data in the Google Sheet.
-*   Proper logging of bot activities and errors for troubleshooting.
