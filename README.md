@@ -1,6 +1,6 @@
 ## About
 
-Codeforces doesn’t send notifications (atleast to me) when contest ratings are updated, and results can take anywhere from 2 to 12 hours to appear. This bot checks your rating automatically and emails you the moment it changes — no need to keep refreshing the CF page. Just drop your handle and email in the [Google Sheet], and you're good to go!
+Codeforces doesn’t send notifications when contest ratings are updated, and results can take anywhere from 2 to 24 hours to appear. This bot automatically emails you when your latest contest ratings are updated and eliminates the need to keep checking the cf website. Just drop your handle and email in the [Google Sheet], and you're good to go!
 
 https://docs.google.com/forms/d/e/1FAIpQLSdwSP5SG5KOWC9Wm2Hd7FoI4dguC1cxTz0W-9b302IqMlo-Gg/viewform?usp=dialog
 
