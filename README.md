@@ -7,7 +7,7 @@ https://docs.google.com/forms/d/e/1FAIpQLSdwSP5SG5KOWC9Wm2Hd7FoI4dguC1cxTz0W-9b3
 
 ## Implementation walkthrough :
 
-Uses Google Sheets API, CF API, SMTP, and runs on GitHub Actions
+Uses Google Sheets API, CF API, SMTP, and runs on GitHub Actions with workflow trigger.
 
 ## To look at the code (not reqd to use the bot) :
 
