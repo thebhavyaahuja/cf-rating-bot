@@ -18,10 +18,11 @@ Uses Google Sheets API, CF API, SMTP, and runs on GitHub Actions with workflow t
    git clone https://github.com/yourusername/codeforces-rating-bot.git
    ```
 2. Navigate to the project directory:
+
    ```
    cd codeforces-rating-bot
    ```
-3. (Optional) For local development, install dependencies:
+4. (Optional) For local development, install dependencies:
    ```
    pip install -r requirements.txt
    ```
